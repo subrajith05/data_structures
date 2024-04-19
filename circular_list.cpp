@@ -18,8 +18,47 @@ class List
         {
             head=NULL;
         };
+        int ins(int);
         void display();
 };
+
+//Main function with the menu
+int main()
+{
+    int choice,num,pos,val;
+    List l1;
+    while(1)
+    { 
+        printf("\nEnter \n1. Insertion at the end\n2. Display");
+        scanf("%d",&choice);
+        switch (choice)
+        {
+            case 1:
+                printf("\nEnter the number to insert: ");
+                scanf("%d", &num);
+    
+                if (l1.ins(num))
+                {
+                    printf("%d sucessfully inserted at the beginning. ",num);
+                }
+                else
+                { 
+                    printf("\nFailed to insert.");
+                }
+                break;
+    
+
+            case 2:
+            l1.display();
+            break;
+            
+            default:
+            printf("Enter a valid choice!!!");
+            break;
+        }  
+    }
+ return 0;
+}
 
 void List::display()
 {
