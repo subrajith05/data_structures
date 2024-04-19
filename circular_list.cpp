@@ -29,7 +29,7 @@ int main()
     List l1;
     while(1)
     { 
-        printf("\nEnter \n1. Insertion at the end\n2. Display");
+        printf("\nEnter \n1. Insertion at the end\n2. Display\n Enter your choice: ");
         scanf("%d",&choice);
         switch (choice)
         {
@@ -39,7 +39,7 @@ int main()
     
                 if (l1.insert(num))
                 {
-                    printf("%d sucessfully inserted at the beginning. ",num);
+                    printf("%d sucessfully inserted. ",num);
                 }
                 else
                 { 
