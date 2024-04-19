@@ -18,7 +18,7 @@ class List
         {
             head=NULL;
         };
-        int ins(int);
+        int insert(int);
         void display();
 };
 
@@ -37,7 +37,7 @@ int main()
                 printf("\nEnter the number to insert: ");
                 scanf("%d", &num);
     
-                if (l1.ins(num))
+                if (l1.insert(num))
                 {
                     printf("%d sucessfully inserted at the beginning. ",num);
                 }
@@ -49,12 +49,12 @@ int main()
     
 
             case 2:
-            l1.display();
-            break;
+                l1.display();
+                break;
             
             default:
-            printf("Enter a valid choice!!!");
-            break;
+                printf("Enter a valid choice!!!");
+                break;
         }  
     }
  return 0;
