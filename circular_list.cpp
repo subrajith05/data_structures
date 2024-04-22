@@ -85,11 +85,11 @@ int main()
                 }
                 break;
 
-            case 5://display
+            case 5://moves head forward
                 l1.moveHeadForward();
                 break;
 
-            case 6://display
+            case 6://moves head backward
                 l1.moveHeadBack();
                 break;
 
