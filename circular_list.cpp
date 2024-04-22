@@ -42,7 +42,7 @@ int main()
     while(1)
     {
         printf("\nMENU:");
-        printf("\nEnter \n1. Insertion\n2. Display\n3. Size\n4. Deletion \n5. Exit\nEnter your choice: ");
+        printf("\nEnter \n1. Insertion\n2. Display\n3. Size\n4. Deletion\n5.headforward\n6.headbackward \n7. Exit\nEnter your choice: ");
         scanf("%d",&choice);
         switch (choice)
         {
@@ -85,7 +85,16 @@ int main()
                 }
                 break;
 
-            case 5:
+            case 5://display
+                l1.moveHeadForward();
+                break;
+
+            case 6://display
+                l1.moveHeadBack();
+                break;
+
+
+            case 7:
                 exit(0);
 
             default://For invalid choice
