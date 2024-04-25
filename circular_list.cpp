@@ -29,26 +29,24 @@ class List
     void moveHeadBack();
     void displayHead();
     int isEmpty();
-    ~List()
-    {
-
-    };
 };
 
 int main()
 {
     int choice,num,pos,val;
     List l1;
+    
     while(1)
     {
         printf("\nMENU:");
-        printf("\nEnter \n1. Insertion\n2. Display\n3. Size\n4. Deletion\n5.headforward\n6.headbackward \n7. Exit\nEnter your choice: ");
+        printf("\nEnter \n1. Insertion at the end\n2. Display Head\n3. Display\n4. Size\n5. Delete\n6. Exit\nEnter your choice: ");
         scanf("%d",&choice);
         switch (choice)
         {
             case 1://insertion at the end
                 printf("\nEnter the number to insert: ");
                 scanf("%d", &num);
+    
                 if (l1.insert(num))
                 {
                     printf("\n%d is sucessfully inserted. ",num);
@@ -58,23 +56,23 @@ int main()
                     printf("\nFailed to insert.");
                 }
                 break;
-
-            case 2://display
+            
+            case 2://display head
+                l1.displayHead();
+                break;
+        
+            case 3://display
                 l1.display();
                 break;
 
-            case 3://displaysize
+            case 4://displaysize
                 printf("\nThe size of the list: %d\n", l1.size());
                 break;
 
-            case 4://deletion of an element
-                if(l1.isEmpty())
-                {
-                    printf("deletion not possible, List is empty");
-                    break;
-                }
+            case 5://deletion of an element
                 printf("\nEnter the number to delete: ");
                 scanf("%d", &num);
+
                 if(l1.del(num))
                 {
                     printf("\n%d is deleted successfully",num);
@@ -84,17 +82,7 @@ int main()
                     printf("\nFailed to delete");
                 }
                 break;
-
-            case 5://moves head forward
-                l1.moveHeadForward();
-                break;
-
-            case 6://moves head backward
-                l1.moveHeadBack();
-                break;
-
-
-            case 7:
+            case 6:
                 exit(0);
 
             default://For invalid choice
@@ -114,8 +102,9 @@ int List::insert(int num)
     struct node *newnode=(struct node*)malloc(sizeof(struct node));
     struct node* temp=head;
     newnode->data=num;
+
     //if empty
-    if(isEmpty())
+    if(head==NULL)
     {
         head=newnode;
         newnode->next=newnode;
@@ -142,7 +131,7 @@ int List::insert(int num)
 //Timce complexity-O(n)
 int List::del(int num)
 {
-    if(isEmpty())
+    if(head==NULL)
     {
         return 0;
     }
@@ -160,23 +149,28 @@ int List::del(int num)
             }
             return 0;
         }
-        else
-        {
+        else{
+            int flag=0;
             for(int i=0;i<cur;i++)
             {
                 if(temp->data==num)
                 {
-                    if(temp==head)
-                    {
-                        head=temp->next;
-                    }
-                    temp->prev->next=temp->next;
-                    temp->next->prev=temp->prev;
-                    cur--;
-                    free(temp);
-                    return 1;
+                    flag=1;
+                    break;
                 }
                 temp=temp->next;
+            }
+            if(flag==1)
+            {
+                if(temp==head)
+                {
+                    head=temp->next;
+                }
+                temp->prev->next=temp->next;
+                temp->next->prev=temp->prev;
+                cur--;
+                free(temp);
+                return 1;
             }
             return 0;
         }
@@ -194,9 +188,13 @@ int List::size()
 //Time complexity-O(1)
 void List::moveHeadForward()
 {
-    if(isEmpty())
+    if(head==NULL)
     {
         printf("\nList is empty.");
+    }
+    else if(head==head->next)
+    {
+        printf("There is only one element in the list, so the head remains in the same position");
     }
     else
     {
@@ -210,9 +208,13 @@ void List::moveHeadForward()
 //Time complexity-O(1)
 void List::moveHeadBack()
 {
-    if(isEmpty())
+    if(head==NULL)
     {
         printf("\nList is empty.");
+    }
+    else if(head==head->next)
+    {
+        printf("There is only one element in the list, so the head remains in the same position");
     }
     else
     {
@@ -226,7 +228,7 @@ void List::moveHeadBack()
 //Time complexity-O(1)
 void List::displayHead()
 {
-    if(isEmpty())
+    if(head==NULL)
     {
         printf("\nThe list is empty.");
     }
@@ -240,15 +242,17 @@ void List::displayHead()
 //Time complexity-O(n)
 void List::display()
 {
-    if(isEmpty())
+    if(head==NULL)
     {
-        printf("\nThe list is empty");
+        printf("\nThe list is empty\n");
     }
 
     else
     {
         struct node* temp=head;
+
         printf("\n<-The elements of the list->\n");
+
         while(temp->next!=head)
         {
             printf("%d\t",temp->data);
