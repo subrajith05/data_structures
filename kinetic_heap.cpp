@@ -39,8 +39,7 @@ int timestamp()
 {
     time_t now = time(0);
     tm *ltm = localtime(&now);
-    printf("%d",now);
-    return 0;
+    return now;
 }
 
 int ins(int num, int time)
