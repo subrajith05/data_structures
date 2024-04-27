@@ -6,7 +6,13 @@
 
 class KHeap
 {
-    int kheap[size][2];
+    struct node
+    {
+      int data;
+      int timestamp;
+      struct node *left;
+      struct node *right
+    };
   
     public:
         KHeap()
