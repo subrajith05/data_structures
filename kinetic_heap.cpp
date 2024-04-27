@@ -22,7 +22,6 @@ class KHeap
         void display();
         int update(int);
         int del();
-        //void sort();
 };
 
 int main()
