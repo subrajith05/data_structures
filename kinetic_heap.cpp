@@ -7,32 +7,19 @@
 #include <chrono>
 #define size 17
 
-class KHeap
-{
-    struct node
-    {
-      int data;
-      int timestamp;
-      struct node *left;
-      struct node *right
-    };
-  
+class KHeap{
+    private:
+        int arr[len];
+        int cur;
     public:
-        KHeap()
-        {
-            
-        };
-        int ins(int,int);
-        int  del(void);
-        void heapify(void);
-
+        KHeap(){
+            cur = -1;
+        }
+        int insert(int);
         int search(int);
-        void display(void);
-        int isEmpty(void);
-        ~KHeap()
-        {
-        
-        };
+        void display();
+        int del();
+        void sort();
 };
 
 int timestamp()
