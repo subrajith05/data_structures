@@ -2,6 +2,9 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctime>
+#include <iostream>
+#include <chrono>
 #define size 17
 
 class KHeap
@@ -31,6 +34,14 @@ class KHeap
         
         };
 };
+
+int timestamp()
+{
+    time_t now = time(0);
+    tm *ltm = localtime(&now);
+    printf("%d",now);
+    return 0;
+}
 
 int ins(int num, int time)
 {
