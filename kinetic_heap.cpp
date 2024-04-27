@@ -3,7 +3,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctime>
-#include <iostream>
 #include <chrono>
 #define len 17
 
