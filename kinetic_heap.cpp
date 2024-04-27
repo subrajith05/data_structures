@@ -9,7 +9,7 @@
 
 class KHeap{
     private:
-        int arr[len];
+        int arr[size][2];
         int cur;
     public:
         KHeap(){
