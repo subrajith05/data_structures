@@ -81,7 +81,7 @@ int main()
             {
                 printf("Enter number to search : ");
                 scanf("%d",&number);
-                if(h.search(number)!=-12)
+                if(h.search(number)!=-1)
                 {
                     printf("%d - Found",number);
                 }
