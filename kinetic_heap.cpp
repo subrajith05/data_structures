@@ -30,13 +30,13 @@ int main()
     int number;
     while(1)
     {
-        printf("\nMenu:\n\t1. Insert\n\t2. Delete\n\t3. Display\n\t4. Search\n\t5. Exit\nEnter your choice: ");
+        printf("\nMenu:\n\t1. Insert and Update\n\t2. Delete\n\t3. Display\n\t4. Search\n\t5. Exit\nEnter your choice: ");
         scanf("%d",&choice);
         switch (choice)
         {
             case 1:
             {
-                printf("Enter number to insert : ");
+                printf("Enter number to insert or update : ");
                 scanf("%d",&number);
                 int ind=h.search(number);
                 if(ind!=-1){
@@ -199,9 +199,8 @@ int KHeap::search(int num){
 int KHeap::update(int ind)
 {
     arr[ind][1]=timestamp();
-    
     int parent;
-    int i=cur;
+    int i=ind;
     while(1)
     {
         if(i==0)
