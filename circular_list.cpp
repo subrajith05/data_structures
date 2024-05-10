@@ -39,11 +39,11 @@ int main()
     while(1)
     {
         printf("\nMENU:");
-        printf("\nEnter \n1. Insertion at the end\n2. Display Head\n3. Display\n4. Size\n5. Delete\n6. Exit\nEnter your choice: ");
+        printf("\nEnter\n1. Insertion at the end\n2. Display Head\n3. Display\n4. Size\n5. Delete\n6. Move Head Forward\n7.Move Head Backward\n8.Exit\nEnter your choice: ");
         scanf("%d",&choice);
         switch (choice)
         {
-            case 1://insertion at the end
+            case 1:
                 printf("\nEnter the number to insert: ");
                 scanf("%d", &num);
     
@@ -57,22 +57,21 @@ int main()
                 }
                 break;
             
-            case 2://display head
+            case 2:
                 l1.displayHead();
                 break;
         
-            case 3://display
+            case 3:
                 l1.display();
                 break;
 
-            case 4://displaysize
+            case 4:
                 printf("\nThe size of the list: %d\n", l1.size());
                 break;
 
-            case 5://deletion of an element
+            case 5:
                 printf("\nEnter the number to delete: ");
                 scanf("%d", &num);
-
                 if(l1.del(num))
                 {
                     printf("\n%d is deleted successfully",num);
@@ -83,9 +82,14 @@ int main()
                 }
                 break;
             case 6:
+                l1.moveHeadForward();
+                break;
+            case 7:
+                l1.moveHeadBack();
+                break;
+            case 8:
                 exit(0);
-
-            default://For invalid choice
+            default:
             printf("\n<--Enter a valid choice!-->\n");
             break;
         }  
@@ -250,15 +254,12 @@ void List::display()
     else
     {
         struct node* temp=head;
-
         printf("\n<-The elements of the list->\n");
-
         while(temp->next!=head)
         {
             printf("%d\t",temp->data);
             temp=temp->next;
         }
-
         printf("%d\n",temp->data);
     }
 }
