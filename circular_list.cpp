@@ -46,7 +46,6 @@ int main()
             case 1:
                 printf("\nEnter the number to insert: ");
                 scanf("%d", &num);
-    
                 if (l1.insert(num))
                 {
                     printf("\n%d is sucessfully inserted. ",num);
@@ -132,7 +131,7 @@ int List::insert(int num)
 }
 
 //Method to delete a specific element in the doubly linked list
-//Timce complexity-O(n)
+//Time complexity-O(n)
 int List::del(int num)
 {
     if(head==NULL)
