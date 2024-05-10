@@ -103,6 +103,7 @@ int main()
     return 0;
 }
 
+//Method to convert current timestamp to integer value
 int timestamp()
 {
     time_t now = time(0);
@@ -110,6 +111,7 @@ int timestamp()
     return now;
 }
 
+//Method to convert epoch time to human readable format
 void convert_epoch_to_time(time_t epoch_time) 
 {
     struct tm *local_time;
@@ -119,7 +121,7 @@ void convert_epoch_to_time(time_t epoch_time)
     printf("%s\n",buffer);
 }
 
-//Method to insert element
+//Method to insert an element into the kinetic heap
 int KHeap::insert(int num)
 {
     if(cur==len-1)
@@ -167,8 +169,7 @@ int KHeap::insert(int num)
     } 
 }
 
-//Method to display the elements of the queue
-//Time complexity - O(n)
+//Method to display the elements of the kinetic heap
 void KHeap::display(void)
 {
     int i;
@@ -187,6 +188,7 @@ void KHeap::display(void)
     }
 }
 
+//Method to search an element in the kinetic heap
 int KHeap::search(int num){
     for(int i=0;i<=cur;i++){
         if(arr[i][0]==num){
@@ -196,6 +198,7 @@ int KHeap::search(int num){
     return -1;
 }
 
+//Method to update the kinetic heap
 int KHeap::update(int ind)
 {
     arr[ind][1]=timestamp();
@@ -233,6 +236,7 @@ int KHeap::update(int ind)
     }
 }
 
+//Method to delete a data from the kinetic heap
 int KHeap::del()
 {
     int temp1;
